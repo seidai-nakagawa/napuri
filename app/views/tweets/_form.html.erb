@@ -1,0 +1,8 @@
+<%# 部分テンプレートとしてnew.html.erbとedit.html.erbからのformデータを持ってきた。 %>
+
+<%= form.text_field :image, placeholder: "Image Upload" %>
+<%# Image Uploadの後に、画像のアイコンを付けてみる。 %>
+<%= form.text_field :image, placeholder: "Video Upload" %>     
+<%# IVideo Uploadの後に、動画のアイコンを付けてみる。 %>
+<%= form.text_area :text, placeholder: "投稿内容", rows: "10" %>
+<%= form.submit "投　稿" %>

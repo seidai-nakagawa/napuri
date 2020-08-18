@@ -2,12 +2,8 @@
   <div class="container">
     <%= form_with(model: @tweet, local: true) do |form| %>
       <h3>POST</h3>
-      <%= form.text_field :image, placeholder: "Image Upload" %>
-      <%# Image Uploadの後に、画像のアイコンを付けてみる。 %>
-      <%= form.text_field :image, placeholder: "Video Upload" %>     
-      <%# IVideo Uploadの後に、動画のアイコンを付けてみる。 %>
-      <%= form.text_area :text, placeholder: "投稿内容", rows: "10" %>
-      <%= form.submit "投　稿" %>
+<%# 部分テンプレートとして_form.html.erbへformデータを移した。 %>
+      <%= render partial: "form", locals: { form: form } %>
     <% end %>
   </div>
 </div>

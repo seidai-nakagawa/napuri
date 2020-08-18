@@ -1,7 +1,7 @@
 <div class="contents row">
   <p><%= @nickname %>'s Page</p>
   <% @tweets.each do |tweet| %>
-    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
       <p><%= tweet.text %></p>
     </div>
   <% end %>
