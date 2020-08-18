@@ -14,13 +14,20 @@
         <h1 class="grid-6"><a href="/">NaPuRi</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "投稿する", new_tweet_path, class: "post" %>
+            <span><%= current_user.nickname %>
+              <ul class="user__info">
+                <li>
+                  <%= link_to "MyPage", "/users/#{current_user.id}" %>
+                  <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </span>            
+          <%= link_to "POST", new_tweet_path, class: "post" %>
           </div>
         <% else %>
           <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+            <%= link_to "LogIn", new_user_session_path, class: "post" %>
+            <%= link_to "SignUp", new_user_registration_path, class: "post" %>
           </div>
         <% end %>
       </div>
