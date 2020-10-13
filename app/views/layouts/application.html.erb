@@ -7,11 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
   <body>
     <header class="header">
       <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">NaPuRi</a></h1>
+        <h1 class="grid-6"><a href="/">NaPuRi<h3> 〜動画像同時共有アプリ〜</h4></a></h1>
+        <%# <script src="script.js"></script> %>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <span><%= current_user.nickname %>
@@ -33,7 +35,7 @@
       </div>
     </header>
     <%= yield %>
-  <%# ヘッダーを追加　24〜28行目まで %>
+  <%# ヘッダーを追加 24〜28行目まで %>
     <footer>
       <p>
         Copyright NaPuRi 2020.

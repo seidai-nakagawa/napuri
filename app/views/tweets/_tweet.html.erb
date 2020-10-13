@@ -1,6 +1,6 @@
  <%# 部分テンプレートとしてindex.html.erbからデータを持って来た。 %>
-
-    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+  <div class="video-content_post">
+    <div class="content_post" style="background-image: url(<%= tweet.image %> )" >
       <div class="more">
         <span><%= image_tag 'arrow_top.png' %></span>
         <ul class="more_list">
@@ -24,3 +24,11 @@
         </a>
       </span>
     </div>
+    <div class="video_post">
+      <%= link_to tweet.video_url.to_s do %>
+        <%= video_tag tweet.video_url.to_s,width: "75%", height: "75%", controls: true, autobuffer: true %>
+      <% end %>
+    </div>
+
+
+  </div>

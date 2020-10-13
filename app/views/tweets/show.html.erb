@@ -26,9 +26,25 @@
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <%= form.submit "SEND" %>
       <% end %>
+
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
+
+    <div class="like_button">
+      <% if current_user.likes.find_by(tweet_id: @tweet.id) %>
+      
+        <%= link_to tweet_like_path(@tweet), method: :delete do %>
+         <span class="fa fa-heart like-btn">いいね</span>
+        <% end %>
+      <% else %>
+        <%= link_to tweet_likes_path(@tweet), method: :post do %>
+          <span class="fa fa-heart like-btn-unlike">いいね</span>
+          
+        <% end %>
+      <% end %>
+    </div>
+
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
