@@ -1,9 +1,0 @@
-
-<div class="contents row">
-  <% @tweets.each do |tweet| %>
-<%# 部分テンプレートとして_tweet.html.erbへデータを移した。 %>
-      <%= render partial: "tweet", locals: { tweet: tweet } %>
-  <% end %>
-</div>
-
-<%# ここに動画を貼り付けられるようにしたい!! %>

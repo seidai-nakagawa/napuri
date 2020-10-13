@@ -1,9 +1,0 @@
-<div class="contents row">
-  <div class="container">
-    <%= form_with(model: @tweet, local: true) do |form| %>
-      <h3>Edit</h3>
-<%# 部分テンプレートとして_form.html.erbへformデータを移した。 %>
-      <%= render partial: "form", locals: { form: form } %>
-    <% end %>
-  </div>
-</div>
