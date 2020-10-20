@@ -1,4 +1,5 @@
 .video-content_post
+  %p= tweet.text
   .content_post{:style => "background-image: url(#{tweet.image} )"}
     .more
       %span= image_tag 'arrow_top.png'
@@ -10,11 +11,10 @@
             = link_to 'Edit', edit_tweet_path(tweet.id), method: :get
           %li
             = link_to 'Delete', tweet_path(tweet.id), method: :delete
-    %p= tweet.text
-    %span.name
-      %a{:href => "/users/#{tweet.user.id}"}
-        %span 投稿者
-        = tweet.user.nickname
   .video_post
     = link_to tweet.video_url.to_s do
       = video_tag tweet.video_url.to_s,width: "75%", height: "75%", controls: true, autobuffer: true
+  %span.name
+    %a{:href => "/users/#{tweet.user.id}"}
+      %span 投稿者
+      = tweet.user.nickname
