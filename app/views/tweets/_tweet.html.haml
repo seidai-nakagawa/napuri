@@ -35,7 +35,7 @@
     画 像
     .image__box
       .image__list
-        = link_to new_tweet_path, method: :get do
+        = link_to edit_tweet_path(tweet.id), method: :get do
           %figure.js-img
             - tweet.images.each do |i|
               = image_tag i.url.url margin:"15px"

@@ -28,6 +28,7 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    @tweet.images.new
   end
 
   def update
@@ -46,6 +47,7 @@ class TweetsController < ApplicationController
   end
   def set_tweet
     @tweet = Tweet.find(params[:id])
+    @images = @tweet.images
   end
 
   def move_to_index

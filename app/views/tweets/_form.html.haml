@@ -11,11 +11,13 @@
         = i.file_field :image, type: 'file', name: "tweet[images_attributes][#{i.index}][url]",class:"js-file", id:"tweet_images_attributes_0_url"
         %label{for: "img-file"}
 %h2
-  Video#{form.file_field :'video', accept: 'video/*'}
+  Video
+  = form.file_field :'video', accept: 'video/*'
+
 %h2
   Title
-= form.text_field :title,  rows: "1"
+  = form.text_field :title,  rows: "1"
 %h2
   Diary
-= form.text_area :text, placeholder: "投稿内容", rows: "10"
-= form.submit '投    稿'
+  = form.text_area :text, placeholder: "投稿内容", rows: "10"
+  = form.submit '投    稿'
