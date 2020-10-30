@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_083712) do
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
     t.string "text"
     t.string "video"
     t.bigint "comment_id"
