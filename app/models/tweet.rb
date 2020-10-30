@@ -1,13 +1,15 @@
 class Tweet < ApplicationRecord
-  validates :text, presence: true, unless: :image? 
-
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :no_image
   belongs_to :user
   has_many :comments
   has_many :likes, dependent: :destroy
 
 
-  mount_uploader :image, ImageUploader
-
   mount_uploader :video, VideoUploader
+
+  def no_image(images_attributes)
+    images_attributes[:url].blank?
+  end
 
 end

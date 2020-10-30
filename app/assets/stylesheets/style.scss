@@ -860,7 +860,7 @@ header.header .user_nav ul li a {
 }
 
 div.contents.row h2 {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   padding: 0;
   font-weight: normal;
 }
@@ -1102,17 +1102,96 @@ footer p {
 .like-btn-unlike {
   color: #8899a6;
 }
-.video_post {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.video-content_post{
+
+.TweetList{
   border: 3px solid navy;
   background: radial-gradient(white,lavender );
   margin-bottom: 45px;
   margin-top: 20px;
   border-radius: 20px;
+  padding: 30px;
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    .date_time{
+      padding:15px 0;
+      .date_time__y{
 
+      }
+      .date_time__m{
+        font-size: 40px;
+      }
+    }
+    .more{
+      padding:0 50px;
+    }
+  }
+  &__title {
+    margin-bottom: 10px;
+    .text__box{
+      background-color: white;
+      width: 100%;
+      font-size: 20px;
+      height: 35px;
+      border: 1px solid #D8D8D8;
+      border-radius: 5px;
+      margin: 0 auto;
+      text-align: center;
+      text.text__title{
+        text-align: center;
+      }
+    }
+  }
+  &__text {
+    margin-bottom: 10px;
+    .text__box{
+      background-color: white;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #D8D8D8;
+      border-radius: 5px;
+    }
+  }
+  &__image {
+    margin-bottom: 10px;
+    .image__box{
+      overflow: auto;
+      place-content: center;
+      align-items: center;
+      background-color: rgb(245, 245, 245);
+      border: 1px dashed rgb(204, 204, 204);
+      height:270px;
+      width: 100%;
+      cursor: pointer;
+      .image__list{
+        display: inline-block;
+        .js-img{
+          width: 200px;
+          height: 250px;
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &__video {
+    .video__box{
+      text-align: center;
+      background-color: rgb(245, 245, 245);
+      border: 1px dashed rgb(204, 204, 204);
+      .video__box__url{
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &__name {
+    text-align: center;
+    margin-bottom: 40px;
+  }
 }
 .s_Page{
   font-size: 18px;
@@ -1120,23 +1199,69 @@ footer p {
   text-indent: 1em;
 }
 
-.sell-image__box{
-  place-content: center;
-  align-items: center;
-  background-color: rgb(245, 245, 245);
-  border: 1px dashed rgb(204, 204, 204);
+.contents_row{
+  margin: 0 300px;
+}
+
+// ここから複数画像
+#diary-image{
   display: flex;
-  flex-direction:column;
-  height:150px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  font-size: 12px;
-  cursor: pointer;
-  .fa-camera-retro{
-    font-size: 25px;
-    height: 24px;
-    margin-bottom: 8px;
-    width: 24px;
+  #previews{
+    display: flex;
+    .js-img{
+      padding-right: 8px;
+      width: 120px;
+      height: 150px;
+    }
+    .js-remove{
+      height: 20px;
+      width: 100px;
+      text-align: center;
+    }
+  }
+  #preview{
+    display: flex;
+    height: 200px;
+    width: 90%;
+    .js-img{
+      padding-right: 8px;
+      width: 120px;
+      height: 150px;
+    }
+    .js-remove{
+      height: 20px;
+      width: 100px;
+      text-align: center;
+    }
+  }
+  .js-file{
+    display: none;
+  }
+  .diary-image__box{
+    place-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    border: 1px dashed rgb(204, 204, 204);
+    display: flex;
+    flex-direction:column;
+    height:150px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    position: relative;
+    .fa-camera-retro{
+      font-size: 25px;
+      height: 24px;
+      margin-bottom: 8px;
+      width: 24px;
+      position: absolute;
+    }
+    .diary-image__box__text{
+      position: absolute;
+      margin-top: 70px;
+    }
+    
   }
 }

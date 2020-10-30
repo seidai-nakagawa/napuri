@@ -1,13 +1,15 @@
 %h2
-.sell-image__box#image-box__container
-  =form.fields_for :tweets do |i|
-    .sell-image__box__input{"data-index": "#{i.index}"}
-      = i.file_field :item_image, type: 'file', name: "item[item_images_attributes][#{i.index}][url]",class:"js-file", id:"item_item_images_attributes_0_url"
-      %label{for: "img-file"}
-        %i.fa.fa-camera-retro
-    %p.sell-image__box__text
+  Images
+#diary-image
+  #previews
+  .diary-image__box#image-box__container
+    %i.fa.fa-camera-retro
+    %p.diary-image__box__text
       クリックしてファイルをアップロード
-
+    =form.fields_for :images do |i|
+      .diary-image__box__input{"data-index": "#{i.index}"}
+        = i.file_field :image, type: 'file', name: "tweet[images_attributes][#{i.index}][url]",class:"js-file", id:"tweet_images_attributes_0_url"
+        %label{for: "img-file"}
 %h2
   Video#{form.file_field :'video', accept: 'video/*'}
 = form.text_area :text, placeholder: "投稿内容", rows: "10"

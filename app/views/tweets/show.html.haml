@@ -1,4 +1,4 @@
-.contents.row
+.contents_row
   .content_post{:style => "background-image: url(#{@tweet.image});"}
     - if user_signed_in? && current_user.id == @tweet.user_id
       .more
