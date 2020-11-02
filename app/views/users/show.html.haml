@@ -1,6 +1,6 @@
-.contents_row
+.contents-row
   %p.s_Page
     = @nickname
-    's Page
+    's Diary
   - @tweets.each do |tweet|
     = render partial: "tweets/tweet", locals: { tweet: tweet }

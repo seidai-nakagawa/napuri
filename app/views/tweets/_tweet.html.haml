@@ -1,4 +1,9 @@
 .TweetList
+  .detail
+    %ul.detail_lists
+      %li
+        = link_to '▶︎ Details', tweet_path(tweet.id), method: :get ,class: "detail_list"
+      - if user_signed_in? && current_user.id == tweet.user_id
   .TweetList__date
     .date_time
       .date_time__y
@@ -8,22 +13,13 @@
         - require 'date'
         - dw = ["日", "月", "火", "水", "木", "金", "土"]
         = tweet.created_at.strftime("%m月%d日(%a)")
-
-    .more
-      %span= image_tag 'arrow_top.png'
-      %ul.more_list
-        %li
-          = link_to 'Finely', tweet_path(tweet.id), method: :get
-        - if user_signed_in? && current_user.id == tweet.user_id
-          %li
-            = link_to 'Edit', edit_tweet_path(tweet.id), method: :get
-          %li
-            = link_to 'Delete', tweet_path(tweet.id), method: :delete
+          -# %li
 
   .TweetList__title
     題 名
     .text__box
-      = tweet.title
+      = link_to edit_tweet_path(tweet.id), method: :get do
+        = tweet.title
 
   .TweetList__text
     日 記
@@ -50,4 +46,5 @@
   .TweetList__name
     %span.name
       %a{:href => "/users/#{tweet.user.id}"}
+        作者：
         = tweet.user.nickname
