@@ -1,50 +1,49 @@
-.TweetList
-  .detail
-    %ul.detail_lists
-      %li
-        = link_to '▶︎ Details', tweet_path(tweet.id), method: :get ,class: "detail_list"
-      - if user_signed_in? && current_user.id == tweet.user_id
-  .TweetList__date
-    .date_time
-      .date_time__y
-        = tweet.created_at.strftime('%Y年')
-        %br
-      .date_time__m
-        - require 'date'
-        - dw = ["日", "月", "火", "水", "木", "金", "土"]
-        = tweet.created_at.strftime("%m月%d日(%a)")
-          -# %li
+- if user_signed_in? && current_user.id == tweet.user_id
+  .TweetList-index
+    .detail
+      %ul.detail_lists
+        %li
+          = link_to '▶︎ Details', tweet_path(tweet.id), method: :get ,class: "detail_list"
+    .TweetList__date
+      .date_time
+        .date_time__y
+          = tweet.created_at.strftime('%Y年')
+          %br
+        .date_time__m
+          - require 'date'
+          - dw = ["日", "月", "火", "水", "木", "金", "土"]
+          = tweet.created_at.strftime("%m月%d日(%a)")
 
-  .TweetList__title
-    題 名
-    .text__box
-      = link_to edit_tweet_path(tweet.id), method: :get do
-        = tweet.title
-
-  .TweetList__text
-    日 記
-    .text__box
-      %p
-        = simple_format(tweet.text)
-
-  .TweetList__image
-    画 像
-    .image__box
-      .image__list
+    .TweetList__title
+      題 名
+      .text__box
         = link_to edit_tweet_path(tweet.id), method: :get do
-          %figure.js-img
-            - tweet.images.each do |i|
-              = image_tag i.url.url margin:"15px"
+          = tweet.title
 
-  .TweetList__video
-    動 画
-    .video__box
-      = link_to tweet.video_url.to_s do
-        .video__box__url
-          = video_tag tweet.video_url.to_s,width: "75%", height: "340px", controls: true, autobuffer: true
+    .TweetList__text
+      日 記
+      .text__box
+        %p
+          = simple_format(tweet.text)
 
-  .TweetList__name
-    %span.name
-      %a{:href => "/users/#{tweet.user.id}"}
-        作者：
-        = tweet.user.nickname
+    .TweetList__image
+      画 像
+      .image__box
+        .image__list
+          = link_to edit_tweet_path(tweet.id), method: :get do
+            %figure.js-img
+              - tweet.images.each do |i|
+                = image_tag i.url.url margin:"15px"
+
+    .TweetList__video
+      動 画
+      .video__box
+        = link_to tweet.video_url.to_s do
+          .video__box__url
+            = video_tag tweet.video_url.to_s,width: "75%", height: "340px", controls: true, autobuffer: true
+
+    .TweetList__name
+      %span.name
+        %a{:href => "/users/#{tweet.user.id}"}
+          作者：
+          = tweet.user.nickname
