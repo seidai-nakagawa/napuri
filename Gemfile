@@ -60,3 +60,4 @@ gem 'mini_magick'
 gem 'streamio-ffmpeg'
 gem "haml-rails"
 gem 'jquery-rails'
+gem 'font-awesome-sass'
